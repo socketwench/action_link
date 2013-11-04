@@ -1,7 +1,7 @@
 # admin UI. 
 # hopefully soon obsolete.
 action_link_list:
-  pattern: '/admin/structure/action_link'
+  path: '/admin/structure/action_link'
   defaults:
     _entity_list: 'action_link'
   requirements:
@@ -9,7 +9,7 @@ action_link_list:
     _access: 'TRUE'
     
 action_link_add:
-  pattern: '/admin/structure/action_link/add'
+  path: '/admin/structure/action_link/add'
   defaults:
     _entity_form: action_link.add
   requirements:
@@ -17,7 +17,7 @@ action_link_add:
     _access: 'TRUE'
 
 action_link_edit:
-  pattern: '/admin/structure/action_link/manage/{action_link}'
+  path: '/admin/structure/action_link/manage/{action_link}'
   defaults:
     _entity_form: action_link.edit
   requirements:
@@ -35,7 +35,7 @@ action_link_edit:
 # wildcard loader? {link_plugin_id}
 # then the config entity just checks to see use of that link is valid.
 action_link_normal:
-  pattern: '/action_link/{action_link_plugin_style_id}/{config_entity_type}/{config_id}/{entity_type}/{entity_id}/{new_state}'
+  path: '/action_link/{action_link_plugin_style_id}/{config_entity_type}/{config_id}/{entity_type}/{entity_id}/{new_state}'
   defaults:
     _content: '\Drupal\action_link\Controller\ActionLinkController::normal'
   requirements:

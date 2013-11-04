@@ -9,6 +9,7 @@ namespace Drupal\action_link;
 
 use Drupal\Core\Language\Language;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityAccessController;
 use Drupal\Core\Entity\EntityAccessControllerInterface;
 

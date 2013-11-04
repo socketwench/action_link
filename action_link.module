@@ -43,7 +43,7 @@ function action_link_menu() {
   $items['admin/structure/action_link/add'] = array(
     'title' => 'Add action link',
     'route_name' => 'action_link_add',
-    'type' => MENU_LOCAL_ACTION,
+    'type' => MENU_SIBLING_LOCAL_TASK,
     'weight' => 1,
   );
   $items['admin/structure/action_link/manage/%robot'] = array(

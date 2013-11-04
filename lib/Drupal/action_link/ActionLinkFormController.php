@@ -38,15 +38,14 @@ class ActionLinkFormController extends EntityFormController {
       '#disabled' => !$action_link->isNew(),
     );
 
-    // TODO: figure out why the delete button appears here!?!?!
-    $form['actions'] = array('#type' => 'actions');
-    $form['actions']['submit'] = array(
-      '#type' => 'submit',
-      '#value' => t('Save'),
-    );
-    dsm($form);
-
     return $form;
+  }
+
+  public function actions(array $form, array &$form_state) {
+    //@todo figure out why the delete button appears here!?!?!
+    $actions = parent::actions($form, $form_state);
+    $actions['submit']['#value'] = t('Save Action Link');
+    return $actions;
   }
 
   /**
@@ -60,18 +59,6 @@ class ActionLinkFormController extends EntityFormController {
   }
 
   /**
-   * Overrides Drupal\Core\Entity\EntityFormController::submit().
-   *
-   * The submit handler creates an entity object from the form values, ready
-   * for saving.
-   */
-  public function submit(array $form, array &$form_state) {
-    // This is just here for the purposes of demonstration: the parent class
-    // does everything we need.
-    parent::submit($form, $form_state);
-  }
-
-  /**
    * Overrides Drupal\Core\Entity\EntityFormController::save().
    *
    * Saves the entity. This is called after submit() has built the entity from
@@ -79,7 +66,6 @@ class ActionLinkFormController extends EntityFormController {
    */
   public function save(array $form, array &$form_state) {
     $action_link = $this->entity;
-    dsm($action_link);
     $status = $action_link->save();
 
     $uri = $action_link->uri();
@@ -95,4 +81,10 @@ class ActionLinkFormController extends EntityFormController {
     $form_state['redirect'] = 'admin/structure/action_link';
   }
 
+  /**
+   * Overrides Drupal\Core\Entity\EntityFormController::delete().
+   */
+  public function delete(array $form, array &$form_state) {
+    $form_state['redirect'] = 'admin/structure/action_link';
+  }
 }

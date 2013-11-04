@@ -7,6 +7,8 @@
 
 namespace Drupal\action_link;
 
+use Drupal\Core\Config\Entity\ConfigEntityInterface;
+
 /**
  * Interface for action link config entities.
  *
@@ -16,7 +18,7 @@ namespace Drupal\action_link;
  *
  * @see \Drupal\action_link\Controller\ActionLinkController
  */
-interface ActionLinkConfigInterface {
+interface ActionLinkConfigInterface extends ConfigEntityInterface {
 
   // Get my style plugin
 

@@ -27,10 +27,11 @@ use Drupal\action_link\ActionLinkConfigInterface;
  *   controllers = {
  *     "storage" = "Drupal\Core\Config\Entity\ConfigStorageController",
  *     "access"  = "Drupal\action_link\ActionLinkAccessController",
- *     "list"    = "Drupal\Core\Config\Entity\ConfigEntityListController",
+ *     "list"    = "Drupal\action_link\Controller\ActionLinkListController",
  *     "form" = {
  *       "add" = "Drupal\action_link\ActionLinkFormController",
- *       "edit" = "Drupal\action_link\ActionLinkFormController"
+ *       "edit" = "Drupal\action_link\ActionLinkFormController",
+ *       "delete" = "Drupal\action_link\ActionLinkFormController"
  *     }
  *   },
  *   access_controller_permission = "administer action links",

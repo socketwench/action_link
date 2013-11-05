@@ -31,7 +31,7 @@ use Drupal\action_link\ActionLinkConfigInterface;
  *     "form" = {
  *       "add" = "Drupal\action_link\ActionLinkFormController",
  *       "edit" = "Drupal\action_link\ActionLinkFormController",
- *       "delete" = "Drupal\action_link\ActionLinkFormController"
+ *       "delete" = "Drupal\action_link\Form\ActionLinkDeleteForm"
  *     }
  *   },
  *   access_controller_permission = "administer action links",

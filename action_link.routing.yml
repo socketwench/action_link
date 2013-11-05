@@ -24,6 +24,13 @@ action_link_edit:
     # This (TODO! does it?) uses our entity access controller.
     _entity_access: action_link.update
 
+action_link_delete:
+  path: '/admin/structure/action_link/manage/{action_link}/delete'
+  defaults:
+    _entity_form: action_link.delete
+  requirements:
+    _entity_access: action_link.delete
+
 # admin/structure/action_link
 
 

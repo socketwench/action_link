@@ -57,6 +57,6 @@ class ActionLinkDeleteForm extends EntityConfirmFormBase {
     $this->entity->delete();
     drupal_set_message($this->t('Deleted action link %name.', array('%name' => $this->entity->label())));
     watchdog('taxonomy', 'Deleted action link %name.', array('%name' => $this->entity->label()), WATCHDOG_NOTICE);
-    $form_state['redirect'] = 'admin/structure/action_link';
+    $form_state['redirect_route']['route_name'] = 'action_link_list';
   }
 } 

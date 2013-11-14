@@ -19,13 +19,13 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  *
  * TODO: token validation!
  *
- * @Plugin(
+ * @ActionLinkType(
  *   id = "reload",
- *   label = "Normal link",
+ *   label = @Translation("Normal link"),
  *   description = "A normal non-JavaScript request will be made and the current page will be reloaded."
  * )
  */
-class Reload  {
+class Reload implements ActionLinkTypePluginInterface {
 
   /**
    * Return the output for a request on an action link.
@@ -41,6 +41,10 @@ class Reload  {
     drupal_set_message("State has been changed.");
 
     return new RedirectResponse(url(current_path(), array('absolute' => TRUE)));
+  }
+
+  function buildLink() {
+    return "action_link/reload/";
   }
 
 }

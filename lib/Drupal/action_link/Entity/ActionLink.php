@@ -63,6 +63,16 @@ class ActionLink extends ConfigEntityBase implements ActionLinkConfigInterface {
   // CHEAT FOR NOW!
   public $toggle_property = 'status';
 
+  protected $linkTypeBag;
+
+  protected $linkTypes = array();
+
+  public function __construct(array $values, $entity_type) {
+    parent::construct($values, $entity_type);
+
+    $linkTypeBag = new DefaultSinglePluginBag(\Drupal::service('plugin.manager.action_link'), $this->linkTypes);
+  }
+
   /**
    * {@inheritdoc}
    *
@@ -168,6 +178,16 @@ class ActionLink extends ConfigEntityBase implements ActionLinkConfigInterface {
     $next_state = $state_cycler_plugin->getNextState();
 
     return "action_link/$link_style_plugin_id/$config_entity_type/$config_id/$entity_type/$entity_id/$next_state";
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getExportProperties() {
+    $properties = parent::getExportProperties();
+    // @see \Drupal\image\Entity\ImageStyle
+  //  $properties['effects'] = $this->getEffects()->sort()->getConfiguration();
+    return $properties;
   }
 
 }

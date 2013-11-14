@@ -22,7 +22,7 @@ class ActionLinkPluginManager extends DefaultPluginManager {
    */
   public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, LanguageManager $language_manager, ModuleHandlerInterface $module_handler) {
     //dpm(func_get_args());
-    parent::__construct('Plugin/ActionLink', $namespaces);
+    parent::__construct('Plugin/ActionLink', $namespaces, 'Drupal\action_link\Annotation\ActionLinkType');
     // No idea. these crash now.
     $this->alterInfo($module_handler, 'action_link_info');
     $this->setCacheBackend($cache_backend, $language_manager, 'action_link_info');
